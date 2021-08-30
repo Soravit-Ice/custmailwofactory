@@ -14,23 +14,11 @@ import java.util.Scanner;
  */
 public class CustomerMailApplication {
 
+    private static Customer customer;
     /**
      * @param args the command line arguments
-     */
-    private Customer customer;
-    public void getCustomerTypeFromUser(String customerType) {
-        switch(customerType) {
-            case "Regular":
-                customer = new RegularCustomer();
-                break;
-            case "Mountain":
-                customer = new MountainCustomer();
-                break;
-            case "Delinquent":
-                customer = new DelinquentCustomer();
-                break;
-        }
-    }
+     */;
+
     public String generateMail() {
         return customer.createMail();
     }
@@ -42,13 +30,13 @@ public class CustomerMailApplication {
         int type = inp.nextInt();
         switch(type) {
             case 1:
-                app.getCustomerTypeFromUser("Regular");
+                 customer = CustomerFactory.createCustomer("Regular");
                 break;
             case 2:
-                app.getCustomerTypeFromUser("Mountain");
+                 customer = CustomerFactory.createCustomer("Mountain");
                 break;
             case 3:
-                app.getCustomerTypeFromUser("Delinquent");
+                 customer = CustomerFactory.createCustomer("Delinquent");
                 break;
             
         }
